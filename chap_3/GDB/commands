@@ -1,0 +1,49 @@
+--
+
+gdb fileName - Load the executable into GDB
+
+--
+
+x - examine
+x/(character) - examine the (character/command) of given memory address
+(x/s 0x934893 -> Returns data of at given memory address in string format)
+x/x - hex
+x/c - char
+x/13c - 13 chars
+x/fg &pi - 'fg' is used for floating point numbers. ('fx' is used to represent a floating point number in hexadecimal)
+x/dw &age - 'dw' is used to represent numeric values (10, 23, 17, etc) ('dx' returns the numeric values in hex format)
+etc...
+
+x/s &variableName - Print the contents of the variable name as a string. (Variable name MUST be preceded by a '&')
+
+--
+info registers - Show the status of all registers ("i r" is a valid abbreviation for info registers)
+(NOTE: rip = instruction pointer (tells cpu what the address of the next instruction is).
+The value of rip:
+1. Should not be changed (may cause UB)
+2. rip does NOT execute the instruction it is showing, in other words, the value shown in rip is the NEXT instruction!)
+--
+
+disassemble (memory_address or function/label name) - Disassemble the compiled assembly code
+disass - Same as above
+set disassembly-flavor intel - Set the assembly syntax to intel (default is AT&T. Optionally you can echo this command into ~/.gdbinit for a permanent change. GDB will always read the .gdbinit file first)
+
+--
+
+list - shows 10 lines of the original assembly code (must compile with -g -F dwarf for this feature to work!)
+
+--
+
+break (memory_address or function/label name) - Set a breakpoint
+b - same as above
+
+--
+
+(memory_address or function/label name)continue - Continue execution
+
+--
+
+next, n, step, s - Mov one instruction at a time
+
+--
+

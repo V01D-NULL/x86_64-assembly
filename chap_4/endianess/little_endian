@@ -1,0 +1,4 @@
+Opposite of big endian.
+Most significant digits are on the right, least significant digits are on the left.
+
+(Intel processors use the little endian byte format)
